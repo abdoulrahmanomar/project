@@ -1,0 +1,44 @@
+            <form id="city-form" class="pure-form" style="margin:30px 0 40px">
+                <div class="row">
+                    <div style="color:red;" id="weatherbit-history-error-msg"></div>
+                    <input id="weatherbit-city-history"  autofocus="" name="geo-lookup" value="" placeholder="City,ST or lat,lon" style="width:100%;max-width:600px;outline:0" autocomplete="off" type="text">
+                    <input id="weatherbit-get-data" type="button" value="Get History">
+                    <input id="weatherbit-show-metric" type="checkbox" value="false">
+                    <label for="weatherbit-show-metric">Use Metric Units</label>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="start">Start Date: </label>
+                        <input autofocus="" id="weatherbit-history-start" name="start" value="2017-01-25" placeholder="Start date (YYYY-MM-DD)"  type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="end">End Date: </label>
+                        <input autofocus="" id="weatherbit-history-end" name="end" value="2017-02-01" placeholder="End date (YYYY-MM-DD)" type="text">
+                    </div>
+                </div>
+            </form>
+
+            <div id="weatherbit-city-name-history"></div>
+            <div id="history-1"></div>
+            <div id="history-2"></div>
+            <div id="history-3"></div>
+            <script async src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+            <script type='text/javascript'>
+            window.weatherbitWidgetParams = {
+                key: 'YOUR-API-KEY',
+                autocomplete_container: 'city-form',
+                history_1: 'history-1',
+                history_2: 'history-2',
+                history_3: 'history-3',
+                cities_file: 'cities-tropical'
+            };
+            (function() {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = 'https://www.weatherbit.io/static/widgets/history-hourly-series-widget.min.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(script, s);
+            })();
+            </script>
+          
